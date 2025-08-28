@@ -1,0 +1,12 @@
+@mixin grid {
+  display: grid;
+  gap: .5rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  justify-items: center;
+}
+
+@mixin grid-item {
+  flex: 1 1 calc(25% - .5rem);
+  max-width: calc(25% - .5rem);
+  min-width: 200px;
+}

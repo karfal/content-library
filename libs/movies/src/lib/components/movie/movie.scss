@@ -1,0 +1,44 @@
+@use '@styles/colors' as *;
+
+.app-movie {
+  &__card {
+    background-color: $white;
+    border: 1px solid $light-grey;
+    border-radius: .3rem;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    height: calc(100% - 1.2rem);
+    overflow: hidden;
+    padding: .6rem;
+    text-decoration: none;
+    transition: box-shadow .2s ease;
+
+    &:hover {
+      box-shadow: 0 2px 10px $grey;
+    }
+  }
+
+  &__img {
+    display: block;
+    height: 270px;
+    width: 100%;
+
+    &:not(.default) {
+      object-fit: cover;
+    }
+  }
+
+  &__content {
+    display: flex;
+    color: $dark;
+    flex-direction: column;
+    gap: .5rem;
+    text-align: center;
+  }
+
+  &__title {
+    color: $primary;
+  }
+}

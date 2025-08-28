@@ -1,0 +1,43 @@
+@use '@styles/colors' as *;
+
+:host {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 3rem;
+}
+
+.app-error {
+  &__title {
+    color: $danger;
+    font-size: 3rem;
+    font-weight: 400;
+    text-align: center;
+    text-transform: capitalize;
+  }
+
+  &__content {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  &__text {
+    color: $dark;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  &__link {
+    background-color: $primary;
+    border: 0;
+    border-radius: .2rem;
+    color: $white;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: .5rem 1.5rem;
+    text-transform: uppercase;
+  }
+}

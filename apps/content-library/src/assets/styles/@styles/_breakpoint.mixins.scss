@@ -1,0 +1,30 @@
+@use 'sass:map';
+@use 'sass:meta';
+
+$breakpoints: (
+  'small': (
+    min-width: 576px,
+  ),
+  'medium': (
+    min-width: 768px,
+  ),
+  'large': (
+    min-width: 992px,
+  ),
+  'xlarge': (
+    min-width: 1200px,
+  ),
+  'xxlarge': (
+    min-width: 1400px,
+  ),
+) !default;
+
+@mixin breakpoint($breakpoint) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    @media #{meta.inspect(map.get($breakpoints, $breakpoint))} {
+      @content;
+    }
+  } @else {
+    @warn 'No breakpoint named `#{$breakpoint}` found in \$breakpoints map.';
+  }
+}

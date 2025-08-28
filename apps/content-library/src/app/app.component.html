@@ -1,0 +1,19 @@
+<div class="app__wrapper">
+  <app-side-menu class="app__side-menu" [class.active]="menuToggled" [menu]="menu" (toggledMenu)="toggledMenu()"></app-side-menu>
+
+  <div class="app__content">
+    <header class="app__header">
+      <button class="app__header-menu-toggle" (click)="toggledMenu()">☰</button>
+
+      <h1 class="app__title">Content Library</h1>
+    </header>
+
+    <main class="app__main">
+      <router-outlet (activate)="activate()"></router-outlet>
+    </main>
+
+    <footer class="app__footer">
+      <p class="app__footer-text">Content Library. All rights reserved.</p>
+    </footer>
+  </div>
+</div>

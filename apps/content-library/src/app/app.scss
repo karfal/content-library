@@ -1,0 +1,53 @@
+@use '@styles/colors' as *;
+@use '@styles/mixins' as mixins;
+
+.app {
+  &__wrapper {
+    display: flex;
+    min-height: 100vh;
+    position: relative;
+  }
+
+  &__content {
+    flex: 1 1 auto;
+  }
+
+  &__main {
+    min-height: 500px;
+  }
+
+  &__header {
+    align-items: center;
+    background-color: $primary;
+    color: $white;
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    padding: 1.5rem;
+  }
+
+  &__header-menu-toggle {
+    background-color: $secondary;
+    border: 0;
+    border-radius: .2rem;
+    color: $white;
+    display: block;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: .5rem 1.5rem;
+
+    @include mixins.breakpoint('medium') {
+      display: none;
+    }
+  }
+
+  &__footer {
+    background-color: $secondary;
+    padding: 1.5rem;
+
+    &-text {
+      color: $white;
+      text-align: center;
+    }
+  }
+}

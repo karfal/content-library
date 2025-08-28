@@ -1,0 +1,44 @@
+@use '@styles/colors' as *;
+@use '@styles/mixins' as mixins;
+
+:host {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1.5rem;
+
+  @include mixins.breakpoint('medium') {
+    padding: 3rem;
+  }
+}
+
+.app-home {
+  &__title {
+    @include mixins.header;
+  }
+
+  &__content {
+    background-color: $subtle-grey;
+    border-radius: .2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1400px;
+    width: calc(100% - 2rem);
+  }
+
+  &__subtitle {
+    color: $primary;
+    font-weight: 300;
+  }
+
+  &__grid {
+    @include mixins.grid;
+  }
+
+  &__grid-item {
+    @include mixins.grid-item;
+  }
+}

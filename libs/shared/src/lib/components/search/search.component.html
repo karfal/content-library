@@ -1,0 +1,23 @@
+<div class="app-search__search-wrapper">
+  <div class="app-search__search-input">
+    <label class="app-search__input-label" for="search">Search: </label>
+    <input class="app-search__input" type="text" id="search" placeholder="search" [formControl]="control" />
+  </div>
+
+  <button class="app-search__clear" (click)="clear()">Clear</button>
+</div>
+
+<div class="app-search__dropdown">
+  <button class="app-search__dropdown-toggle" (click)="toggleDropdown()">List</button>
+
+  @if (showDropdown) {
+    <div class="app-search__dropdown-menu">
+      @for (item of list; track $index) {
+        <div>
+          <input class="app-search__dropdown-checkbox" type="checkbox" [checked]="selectedLists.includes(item)" (change)="toggleList(item)" id="{{item}}" />
+          <label class="app-search__dropdown-label" for="{{item}}">{{ item }}</label>
+        </div>
+      }
+    </div>
+  }
+</div>

@@ -1,0 +1,21 @@
+<h2 class="app-list__title">{{ pageTitle }}</h2>
+
+@if (error()) {
+  <p class="app__error-text">Failed to load movies. Please try again later.</p>
+} @else {
+  <div class="app-list__content">
+    <app-search [list]="genres()"></app-search>
+
+    <div class="app-list__grid">
+      @for (movie of movies; track movie.id) {
+        <app-movie class="app-list__grid-item" [movie]="movie"></app-movie>
+      }
+    </div>
+  </div>
+}
+
+@defer {
+  <app-last-visited></app-last-visited>
+} @placeholder {
+  <div>Loading last visited movies...</div>
+}

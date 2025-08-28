@@ -1,0 +1,114 @@
+@use '@styles/colors' as *;
+@use '@styles/mixins' as mixins;
+@use 'sass:color';
+
+:host {
+  background-color: $primary;
+  display: none;
+  height: 100%;
+  padding: 1rem;
+  position: absolute;
+  width: calc(100% - 2rem);
+  z-index: 1;
+
+  &.active {
+    display: block;
+  }
+
+  @include mixins.breakpoint('medium') {
+    display: block;
+    height: unset;
+    position: static;
+    width: 4.5rem;
+
+    &.active {
+      width: 280px;
+    }
+  }
+}
+
+.app-side-menu {
+  &__toggle {
+    background-color: $secondary;
+    border: 0;
+    border-radius: .2rem;
+    color: $white;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: .5rem 1.5rem;
+
+    &:hover {
+      background-color: color.scale($secondary, $lightness: -10%);
+    }
+  }
+
+  &__nav {
+    border-bottom: 1px solid $light-grey;
+    border-top: 1px solid $light-grey;
+    margin: 1rem 0;
+    padding: 1rem 0;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    a {
+      color: $white;
+      text-transform: capitalize;
+
+      &:hover {
+        color: $secondary;
+      }
+    }
+  }
+
+  &__link-text {
+    display: none;
+  }
+
+  &__link-img {
+    display: block;
+  }
+
+  &__link {
+    &.active {
+      .app-side-menu {
+        &__link-text {
+          color: $secondary;
+        }
+
+        &__link-img {
+          border: 2px solid $secondary;
+          border-radius: 50%;
+          padding: .3rem;
+        }
+      }
+    }
+  }
+}
+
+:host {
+  .app-side-menu {
+    &__list {
+      align-items: center;
+    }
+  }
+
+  &.active {
+    .app-side-menu {
+      &__list {
+        align-items: flex-start;
+      }
+
+      &__link-text {
+        display: block;
+      }
+
+      &__link-img {
+        display: none;
+      }
+    }
+  }
+}

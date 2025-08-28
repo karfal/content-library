@@ -1,0 +1,34 @@
+@use '@styles/colors' as *;
+@use '@styles/mixins' as mixins;
+
+:host {
+  background: $subtle-grey;
+  border-radius: .2rem;
+  max-width: 1400px;
+  padding: 2rem;
+  width: calc(100% - 2rem);
+
+  &.hide {
+    display: none;
+  }
+}
+
+.app-last-visited {
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  &__title {
+    @include mixins.header;
+  }
+
+  &__grid {
+    @include mixins.grid;
+  }
+
+  &__grid-item {
+    @include mixins.grid-item;
+  }
+}

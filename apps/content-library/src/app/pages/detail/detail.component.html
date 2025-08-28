@@ -1,0 +1,35 @@
+<h2 class="app-details__title">{{ pageTitle }}</h2>
+
+@if (error()) {
+  <p class="app__error-text">Failed to load movies. Please try again later.</p>
+} @else {
+  <div class="app-details__content">
+    <div>
+      <img class="app-details__image" [src]="movie.image.url" [alt]="movie.image.title" (error)="imageError($event)" />
+    </div>
+
+    <div class="app-details__info">
+      <h2 class="app-details__info-title">{{ movie.title }}</h2>
+
+      <div class="app-details__genres">
+        @for (genre of movie.genres; track genre) {
+          <span class="app-details__genre">{{ genre }}</span>
+        }
+      </div>
+
+      <p class="app-details__popularity">
+        Popularity: {{ movie.popularity | number:'1.2-2' }}
+      </p>
+
+      <p class="app-details__budget">
+        Budget: €{{ movie.budget | number }}
+      </p>
+    </div>
+  </div>
+}
+
+@defer {
+  <app-last-visited></app-last-visited>
+} @placeholder {
+  <div>Loading last visited movies...</div>
+}

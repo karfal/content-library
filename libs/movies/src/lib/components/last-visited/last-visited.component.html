@@ -1,0 +1,9 @@
+<div class="app-last-visited__wrapper">
+  <h3 class="app-last-visited__title">Last Visited</h3>
+
+  <div class="app-last-visited__grid">
+    @for (movie of movies; track movie.id) {
+      <app-movie class="app-last-visited__grid-item" [movie]="movie"></app-movie>
+    }
+  </div>
+</div>

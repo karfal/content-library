@@ -1,0 +1,9 @@
+<a [routerLink]="['/list', movie.slug]" class="app-movie__card">
+  <img [src]="movie.image.url" [alt]="movie.image.title" (error)="imageError($event)" loading="lazy" class="app-movie__img" />
+
+  <div class="app-movie__content">
+    <h4 class="app-movie__title">{{ movie.title }}</h4>
+    <p class="app-movie__release">Released: {{ movie.released }}</p>
+    <p class="app-movie__genres">Genres: {{ movie.genres.join(', ') }}</p>
+  </div>
+</a>

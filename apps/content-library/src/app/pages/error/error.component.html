@@ -1,0 +1,11 @@
+<h2 class="app-error__title">Error</h2>
+
+<div class="app-error__content">
+  @if (errorStatus === 500) {
+    <p class="app-error__text">We are having some technical difficulties. Kindly check again later.</p>
+  } @else {
+    <p class="app-error__text">Seems like there was an error loading the page. Kindly navigate back to home.</p>
+
+    <a class="app-error__link" [routerLink]="['/home']">home</a>
+  }
+</div>

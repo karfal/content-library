@@ -1,0 +1,14 @@
+<button class="app-side-menu__toggle" (click)="toggle()">☰</button>
+
+<nav class="app-side-menu__nav" [class.open]="isOpen">
+  <ul class="app-side-menu__list">
+    @for (m of menu; track m.name) {
+      <li>
+        <a class="app-side-menu__link" [routerLink]="[m.link]" routerLinkActive="active">
+          <span class="app-side-menu__link-text">{{ m.name }}</span>
+          <img class="app-side-menu__link-img" src="assets/images/{{ m.icon }}.svg" [alt]="m.name" width="20" height="20" />
+        </a>
+      </li>
+    }
+  </ul>
+</nav>
