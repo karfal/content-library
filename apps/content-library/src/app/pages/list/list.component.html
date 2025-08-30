@@ -4,7 +4,7 @@
   <p class="app__error-text">Failed to load movies. Please try again later.</p>
 } @else {
   <div class="app-list__content">
-    <app-search [list]="genres()"></app-search>
+    <app-search class="app-list__search" [list]="genres()"></app-search>
 
     <div class="app-list__grid">
       @for (movie of movies; track movie.id) {

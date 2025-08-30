@@ -7,11 +7,18 @@ export default defineConfig({
       cypressDir: 'src',
       webServerCommands: {
         default: 'pnpm exec nx run content-library:serve',
-        production: 'pnpm exec nx run content-library:serve-static',
+        production: 'pnpm exec nx run content-library:serve-static'
       },
       ciWebServerCommand: 'pnpm exec nx run content-library:serve-static',
-      ciBaseUrl: 'http://localhost:4200',
+      ciBaseUrl: 'http://localhost:4200'
     }),
-    baseUrl: 'http://localhost:4200',
+    baseUrl: 'http://localhost:4200'
   },
+  component: {
+    devServer: {
+      framework: 'angular',
+      bundler: 'webpack'
+    },
+    specPattern: '**/*.cy.ts'
+  }
 });
