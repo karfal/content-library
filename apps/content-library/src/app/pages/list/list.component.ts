@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, Signal } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
 import { IMovie, LastVisitedComponent, MovieComponent, MovieService } from '@libs/movies';
@@ -13,7 +12,7 @@ import { SearchComponent } from '@libs/shared';
   styleUrls: ['./list.scss'],
   host: { class: 'app-list' },
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [ReactiveFormsModule, MovieComponent, SearchComponent, LastVisitedComponent],
+  imports: [MovieComponent, SearchComponent, LastVisitedComponent],
   standalone: true
 })
 export class ListComponent {
