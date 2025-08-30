@@ -1,5 +1,5 @@
-import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject, Signal } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { ChangeDetectionStrategy, Component, inject, PLATFORM_ID, Signal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { IMovie, LastVisitedComponent, MovieService } from '@libs/movies';
@@ -19,6 +19,7 @@ export class DetailComponent {
 
   private route = inject(ActivatedRoute);
   private movieService = inject(MovieService);
+  private platformId = inject(PLATFORM_ID);
 
   pageTitle: string;
   movie!: IMovie;
@@ -48,13 +49,15 @@ export class DetailComponent {
    * Save movie object to local storage.
    */
   private updateLastVisited(movie: IMovie) {
-    if (movie.id && movie.title) {
-      const storage = JSON.parse(localStorage.getItem('lastVisited') || '[]') as IMovie[];
-      const filtered = storage.filter((m: IMovie) => m.slug !== movie.slug);
-      filtered.unshift(movie);
+    if (isPlatformBrowser(this.platformId)) {
+      if (movie.id && movie.title) {
+        const storage = JSON.parse(localStorage.getItem('lastVisited') || '[]') as IMovie[];
+        const filtered = storage.filter((m: IMovie) => m.slug !== movie.slug);
+        filtered.unshift(movie);
 
-      const movieList = filtered.slice(0, 5);
-      localStorage.setItem('lastVisited', JSON.stringify(movieList));
+        const movieList = filtered.slice(0, 5);
+        localStorage.setItem('lastVisited', JSON.stringify(movieList));
+      }
     }
   }
 }

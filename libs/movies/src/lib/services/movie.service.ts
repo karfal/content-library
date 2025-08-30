@@ -7,6 +7,7 @@ import { AbstractService } from '@libs/shared';
 
 import { catchError, map, Observable, of, shareReplay } from 'rxjs';
 
+import { environment } from '../../../../../apps/content-library/src/environments/environment';
 import { IMovie } from '../models/movie.model';
 
 @Injectable({
@@ -16,7 +17,9 @@ export class MovieService implements AbstractService<IMovie> {
 
   private http = inject(HttpClient);
 
-  private readonly dataURL = 'assets/movie.mock-data.json';
+  //this is for ssr
+  private baseUrl = typeof window !== 'undefined' ? '' : environment.url;
+  private readonly dataURL = `${this.baseUrl}/assets/movie.mock-data.json`;
 
   private allMovies$?: Observable<IMovie[]>;
 

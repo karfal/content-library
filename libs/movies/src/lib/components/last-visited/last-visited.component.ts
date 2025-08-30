@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, HostBinding, OnInit } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { ChangeDetectionStrategy, Component, HostBinding, inject, OnInit, PLATFORM_ID } from '@angular/core';
 
 import { IMovie } from '../../models/movie.model';
 import { MovieComponent } from '../movie/movie.component';
@@ -17,6 +18,8 @@ import { MovieComponent } from '../movie/movie.component';
 })
 export class LastVisitedComponent implements OnInit {
 
+  private platformId = inject(PLATFORM_ID);
+
   @HostBinding('class.hide')
   get isEmpty(): boolean {
     return !this.movies.length;
@@ -25,6 +28,8 @@ export class LastVisitedComponent implements OnInit {
   movies: IMovie[] = [];
 
   ngOnInit() {
-    this.movies = JSON.parse(localStorage.getItem('lastVisited') || '[]');
+    if (isPlatformBrowser(this.platformId)) {
+      this.movies = JSON.parse(localStorage.getItem('lastVisited') || '[]');
+    }
   }
 }

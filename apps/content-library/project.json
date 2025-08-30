@@ -33,7 +33,12 @@
         ],
         "styles": [
           "apps/content-library/src/styles.scss"
-        ]
+        ],
+        "server": "apps/content-library/src/main.server.ts",
+        "ssr": {
+          "entry": "apps/content-library/src/server.ts"
+        },
+        "outputMode": "server"
       },
       "configurations": {
         "production": {
@@ -49,7 +54,13 @@
               "maximumError": "8kb"
             }
           ],
-          "outputHashing": "all"
+          "outputHashing": "all",
+          "fileReplacements": [
+            {
+              "replace": "apps/content-library/src/environments/environment.ts",
+              "with": "apps/content-library/src/environments/environment.prod.ts"
+            }
+          ]
         },
         "development": {
           "optimization": false,

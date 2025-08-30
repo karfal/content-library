@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, HostListener } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { ChangeDetectionStrategy, Component, HostListener, inject, PLATFORM_ID } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 import { IMenu, SideMenuComponent } from '@libs/shared';
@@ -12,6 +13,8 @@ import { IMenu, SideMenuComponent } from '@libs/shared';
   standalone: true
 })
 export class AppComponent {
+
+  private platformId = inject(PLATFORM_ID);
 
   menu: IMenu[] = [];
   menuToggled = false;
@@ -31,12 +34,16 @@ export class AppComponent {
       }
     ];
 
-    this.windowInnerWidth = window.innerWidth;
+    if (isPlatformBrowser(this.platformId)) {
+      this.windowInnerWidth = window.innerWidth;
+    }
   }
 
   @HostListener('window:resize', ['$event'])
   onResize(event: Event) {
-    this.windowInnerWidth = (event.target as Window).innerWidth;
+    if (isPlatformBrowser(this.platformId)) {
+      this.windowInnerWidth = (event.target as Window).innerWidth;
+    }
   }
 
   toggledMenu() {
