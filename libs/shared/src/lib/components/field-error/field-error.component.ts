@@ -9,6 +9,7 @@ import { AbstractControl } from '@angular/forms';
   selector: 'field-error',
   templateUrl: './field-error.component.html',
   styleUrl: './field-error.scss',
+  host: { class: 'app-field-error' },
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true
 })
