@@ -1,0 +1,94 @@
+@use '@styles/colors' as *;
+@use '@styles/mixins' as mixins;
+
+:host {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1.5rem;
+
+  @include mixins.breakpoint('medium') {
+    padding: 3rem;
+  }
+}
+
+.app-registration {
+  &__title {
+    @include mixins.header;
+  }
+
+  &__form {
+    align-items: center;
+    background-color: $subtle-grey;
+    border-radius: .2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1400px;
+    width: calc(100% - 2rem);
+  }
+
+  &__field-wrapper {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    position: relative;
+  }
+
+  &__label {
+    height: 1px;
+    margin: 0;
+    overflow: hidden;
+    position: absolute;
+    text-indent: -100rem;
+    width: 1px;
+  }
+
+  &__field {
+    border: 1px solid $light-grey;
+    border-radius: .2rem;
+    color: $dark;
+    font-size: .9rem;
+    padding: .7rem;
+    min-width: 200px;
+
+    @include mixins.breakpoint('medium') {
+      min-width: 300px;
+    }
+
+    &-select {
+      min-width: calc(200px + 1.5rem);
+
+      @include mixins.breakpoint('medium') {
+        min-width: calc(300px + 1.5rem);
+      }
+    }
+
+    &:focus {
+      border-color: $light-grey;
+      outline: none;
+    }
+  }
+
+  &__button-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  &__button {
+    background-color: $success;
+    border: 0;
+    cursor: pointer;
+    padding: .5rem 1rem;
+    font-size: 1.3rem;
+    border-radius: .2rem;
+
+    &:nth-of-type(2) {
+      background-color: $warning;
+    }
+  }
+}

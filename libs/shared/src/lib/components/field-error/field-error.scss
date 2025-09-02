@@ -1,0 +1,14 @@
+@use '@styles/colors' as *;
+
+:host {
+  color: $danger;
+  display: none;
+  font-size: .8rem;
+  margin: .2rem 0;
+  position: absolute;
+  bottom: -1.2rem;
+
+  &.show {
+    display: block;
+  }
+}

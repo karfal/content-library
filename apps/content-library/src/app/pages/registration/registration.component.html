@@ -1,0 +1,50 @@
+<h2 class="app-registration__title">{{ pageTitle }}</h2>
+
+<form class="app-registration__form" [formGroup]="formGroup">
+
+  <div class="app-registration__field-wrapper">
+    <label class="app-registration__label" for="firstName">first name</label>
+    <input class="app-registration__field" id="firstName" formControlName="firstName" placeholder="name" />
+
+    <field-error [control]="formGroup.get('firstName')"></field-error>
+  </div>
+
+  <div class="app-registration__field-wrapper">
+    <label class="app-registration__label" for="lastName">last name</label>
+    <input class="app-registration__field" id="lastName" formControlName="lastName" placeholder="last name" />
+
+    <field-error [control]="formGroup.get('lastName')"></field-error>
+  </div>
+
+  <div class="app-registration__field-wrapper">
+    <label class="app-registration__label" for="genres">select genres</label>
+    <select class="app-registration__field app-registration__field-select" id="genres" formControlName="genres">
+      <option value="">Select genres</option>
+      @for (genre of genres(); track $index) {
+        <option [value]="genre">{{ genre }}</option>
+      }
+    </select>
+
+    <field-error [control]="formGroup.get('genres')"></field-error>
+  </div>
+
+  <div class="app-registration__field-wrapper">
+    <label class="app-registration__label" for="email">email</label>
+    <input class="app-registration__field" id="email" formControlName="email" type="email" placeholder="email" />
+
+    <field-error [control]="formGroup.get('email')"></field-error>
+  </div>
+
+  <div class="app-registration__field-wrapper">
+    <label class="app-registration__label" for="password">password</label>
+    <input class="app-registration__field" id="password" formControlName="password" type="password" placeholder="password" />
+
+    <field-error [control]="formGroup.get('password')"></field-error>
+  </div>
+
+  <div class="app-registration__button-wrapper">
+    <button class="app-registration__button" type="submit" [disabled]="!formGroup.valid">Submit</button>
+    <button class="app-registration__button" type="reset">Clear</button>
+  </div>
+
+</form>

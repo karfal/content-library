@@ -34,6 +34,11 @@ export const ROUTES: Routes = [
     loadComponent: () => import('./pages/detail/detail.component').then(p => p.DetailComponent)
   },
   {
+    path: 'registration',
+    title: 'user registration',
+    loadComponent: () => import('./pages/registration/registration.component').then(p => p.RegistrationComponent)
+  },
+  {
     path: '**',
     loadComponent: () => import('./pages/error/error.component').then(p => p.ErrorComponent)
   }
