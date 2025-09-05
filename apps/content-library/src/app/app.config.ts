@@ -3,6 +3,9 @@ import { ApplicationConfig, provideBrowserGlobalErrorListeners, provideZoneChang
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import { provideRouter } from '@angular/router';
 
+import { ENVIRONMENT } from '@libs/shared';
+
+import { environment } from '../environments/environment';
 import { ROUTES } from './app.routes';
 import { ErrorInterceptor } from './core/interceptors/error.interceptor';
 
@@ -17,6 +20,10 @@ export const appConfig: ApplicationConfig = {
       provide: HTTP_INTERCEPTORS,
       useClass: ErrorInterceptor,
       multi: true
+    },
+    {
+      provide: ENVIRONMENT,
+      useValue: environment
     }
   ]
 };

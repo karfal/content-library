@@ -3,11 +3,10 @@ import { computed, inject, Injectable, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ParamMap } from '@angular/router';
 
-import { AbstractService } from '@libs/shared';
+import { AbstractService, ENVIRONMENT, IEnvironmentModel } from '@libs/shared';
 
 import { catchError, map, Observable, of, shareReplay } from 'rxjs';
 
-import { environment } from '../../../../../apps/content-library/src/environments/environment';
 import { IMovie } from '../models/movie.model';
 
 @Injectable({
@@ -16,9 +15,10 @@ import { IMovie } from '../models/movie.model';
 export class MovieService implements AbstractService<IMovie> {
 
   private http = inject(HttpClient);
+  private environment = inject<IEnvironmentModel>(ENVIRONMENT);
 
   //this is for ssr
-  private baseUrl = typeof window !== 'undefined' ? '' : environment.url;
+  private baseUrl = typeof window !== 'undefined' ? '' : this.environment.url;
   private readonly dataURL = `${this.baseUrl}/assets/movie.mock-data.json`;
 
   private allMovies$?: Observable<IMovie[]>;
