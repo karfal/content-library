@@ -19,6 +19,6 @@ export class ErrorComponent {
   errorStatus: number;
 
   constructor() {
-    this.errorStatus = this.router.getCurrentNavigation()?.extras?.state?.['status'];
+    this.errorStatus = this.router.currentNavigation()?.extras?.state?.['status'];
   }
 }
