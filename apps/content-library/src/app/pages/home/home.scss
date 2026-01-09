@@ -1,5 +1,4 @@
-@use '@styles/colors' as *;
-@use '@styles/mixins' as mixins;
+@use 'index' as *;
 
 :host {
   align-items: center;
@@ -8,14 +7,14 @@
   gap: 2rem;
   padding: 1.5rem;
 
-  @include mixins.breakpoint('medium') {
+  @include breakpoint('medium') {
     padding: 3rem;
   }
 }
 
 .app-home {
   &__title {
-    @include mixins.header;
+    @include header;
   }
 
   &__content {
@@ -35,10 +34,10 @@
   }
 
   &__grid {
-    @include mixins.grid;
+    @include grid;
   }
 
   &__grid-item {
-    @include mixins.grid-item;
+    @include grid-item;
   }
 }
