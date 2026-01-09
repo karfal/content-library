@@ -4,7 +4,10 @@
   "projectType": "application",
   "prefix": "app",
   "sourceRoot": "apps/content-library/src",
-  "tags": [],
+  "tags": [
+    "type:app",
+    "scope:content-library"
+  ],
   "targets": {
     "build": {
       "executor": "@angular/build:application",
@@ -21,7 +24,7 @@
         "inlineStyleLanguage": "scss",
         "stylePreprocessorOptions": {
           "includePaths": [
-            "apps/content-library/src/assets/styles"
+            "libs/shared/src/lib/styles"
           ]
         },
         "assets": [

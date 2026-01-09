@@ -4,17 +4,13 @@
   "sourceRoot": "libs/shared/src",
   "prefix": "lib",
   "projectType": "library",
-  "tags": [],
+  "tags": [
+    "type:util",
+    "scope:shared"
+  ],
   "targets": {
     "lint": {
       "executor": "@nx/eslint:lint"
-    },
-    "build": {
-      "options": {
-        "stylePreprocessorOptions": {
-          "includePaths": ["apps/content-library/src/assets/styles"]
-        }
-      }
     }
   }
 }
