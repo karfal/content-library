@@ -1,5 +1,4 @@
-@use '@styles/colors' as *;
-@use '@styles/mixins' as mixins;
+@use 'index' as *;
 
 :host {
   background: $subtle-grey;
@@ -21,14 +20,14 @@
   }
 
   &__title {
-    @include mixins.header;
+    @include header;
   }
 
   &__grid {
-    @include mixins.grid;
+    @include grid;
   }
 
   &__grid-item {
-    @include mixins.grid-item;
+    @include grid-item;
   }
 }
