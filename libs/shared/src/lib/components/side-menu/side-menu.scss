@@ -1,5 +1,4 @@
-@use '@styles/colors' as *;
-@use '@styles/mixins' as mixins;
+@use '../../styles/index' as *;
 @use 'sass:color';
 
 :host {
@@ -15,7 +14,7 @@
     display: block;
   }
 
-  @include mixins.breakpoint('medium') {
+  @include breakpoint('medium') {
     display: block;
     height: unset;
     position: static;

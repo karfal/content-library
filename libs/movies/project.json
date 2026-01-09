@@ -11,6 +11,15 @@
   "targets": {
     "lint": {
       "executor": "@nx/eslint:lint"
+    },
+    "build": {
+      "options": {
+        "stylePreprocessorOptions": {
+          "includePaths": [
+            "libs/shared/src/lib/styles"
+          ]
+        }
+      }
     }
   }
 }
