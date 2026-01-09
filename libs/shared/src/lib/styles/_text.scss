@@ -1,4 +1,4 @@
-@use '@styles/colors' as *;
+@use 'index' as *;
 
 @mixin header($color: $primary, $font-size: 3rem, $font-weight: 400, $text-align: center, $text-transform: capitalize) {
   color: $color;
